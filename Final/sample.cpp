@@ -16,6 +16,9 @@
 #include "glut.h"
 #include <time.h>
 #include "osusphere.cpp"
+
+#include "loadobjfile.cpp"
+
 int mode = 0;
 int light_selection = 0;
 
@@ -217,6 +220,8 @@ gravitytest gparticle[100];
 
 center initial;
 
+GLuint DL;
+
 struct tornadotest
 {
 	float x0, y0, z0;
@@ -309,6 +314,8 @@ void	DoDepthMenu( int );
 void	DoDebugMenu( int );
 void	DoMainMenu( int );
 void	DoProjectMenu( int );
+void	DoLightMenu(int);
+void	DoParticleMenu(int);
 void	DoShadowMenu();
 void	DoRasterString( float, float, float, char * );
 void	DoStrokeString( float, float, float, float, char * );
@@ -505,9 +512,19 @@ Display( )
 	//glPointSize(3);
 
 	//glBegin(GL_POINTS);
-	glEnable(GL_LIGHTING);
+	if (light_selection != 0) {
+		glEnable(GL_LIGHTING);
+	}
+	else {
+		glDisable(GL_LIGHTING);
+	}
 
-	//glEnable(GL_LIGHT0);
+	if (light_selection == 1) {
+		glEnable(GL_LIGHT0);
+	}
+	else {
+		glDisable(GL_LIGHT0);
+	}
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, Array3(1., 1., 1.));
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, MulArray3(.5, White));
@@ -516,28 +533,26 @@ Display( )
 	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.);
 	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.);
 
-	
+	if (light_selection == 2) {
+		glEnable(GL_LIGHT2);
+	}
+	else {
+		glDisable(GL_LIGHT2);
+	}
+
+
 	glLightfv(GL_LIGHT2, GL_SPECULAR, White);
 
 	glLightf(GL_LIGHT2, GL_CONSTANT_ATTENUATION, 1.);
 	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.);
 	glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.);
 
-	
 
-	glLightfv(GL_LIGHT2, GL_POSITION, Array3(0., 10., lightz));
+
+	
 	glBegin(GL_POINTS);
 	glPushMatrix();
 	glPointSize(5);
-	if (light_selection == 0) {
-		glDisable(GL_LIGHTING);
-	}
-	else if (light_selection == 1) {
-		glEnable(GL_LIGHT2);
-	}
-	else if (light_selection == 2) {
-		glEnable(GL_LIGHT0);
-	}
 
 	glColor3f(1., 1., 1.);
 	glVertex3f(0., 10., lightz);
@@ -548,6 +563,8 @@ Display( )
 		lightz = -10;
 	}
 	if (mode == 1) {
+		glLightfv(GL_LIGHT2, GL_POSITION, Array3(0., 10., lightz));
+		//glEnable(GL_LIGHT2);
 		for (int i = 0; i < 500; i++) {
 
 			RotateX(&tornadolist[i], tornadolist[i].degree, tornadolist[i].xc, tornadolist[i].yc, tornadolist[i].zc);
@@ -576,7 +593,19 @@ Display( )
 				tornadolist[i].x = tornadolist[i].x0;
 				tornadolist[i].y = 0;
 				tornadolist[i].z = tornadolist[i].z0;
+
+				tornadolist[i].teapot = rand() % 101;
 			}
+			if (tornadolist[i].teapot == 100) {
+				glPushMatrix();
+				//glColor3f(tornadolist[i].r, tornadolist[i].g, tornadolist[i].b);
+				SetMaterial(tornadolist[i].r, tornadolist[i].g, tornadolist[i].b, 100);
+				glShadeModel(GL_SMOOTH);
+				glTranslatef(tornadolist[i].x, tornadolist[i].y, tornadolist[i].z);
+				glCallList(DL);
+				glPopMatrix();
+			}
+
 			glPushMatrix();
 			//glColor3f(tornadolist[i].r, tornadolist[i].g, tornadolist[i].b);
 			SetMaterial(tornadolist[i].r, tornadolist[i].g, tornadolist[i].b, 100);
@@ -585,15 +614,45 @@ Display( )
 			glCallList(BoxList);
 			glPopMatrix();
 		}
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				glBegin(GL_POLYGON);
+
+				if (floorlist[i][j].hit == 1) {
+					floorlist[i][j].timer = floorlist[i][j].timer - 1;
+					if (floorlist[i][j].timer == 0) {
+						floorlist[i][j].hit = 0;
+						floorlist[int(rainstorm[i].z0) + 10][int(rainstorm[i].x0) + 10].r = 1;
+						floorlist[int(rainstorm[i].z0) + 10][int(rainstorm[i].x0) + 10].g = 1;
+						floorlist[int(rainstorm[i].z0) + 10][int(rainstorm[i].x0) + 10].b = 1;
+					}
+				}
+				glPushMatrix();
+				glNormal3f(0, 1, 0);
+
+				SetMaterial(floorlist[i][j].r, floorlist[i][j].g, floorlist[i][j].b, 100);
+				glShadeModel(GL_SMOOTH);
+				glColor3f(floorlist[i][j].r, floorlist[i][j].g, floorlist[i][j].b);
+				glVertex3f(floorlist[i][j].x0, floorlist[i][j].y0, floorlist[i][j].z0);
+				glVertex3f(floorlist[i][j].x0 + 1, floorlist[i][j].y0, floorlist[i][j].z0);
+				glVertex3f(floorlist[i][j].x0 + 1, floorlist[i][j].y0, floorlist[i][j].z0 + 1);
+				glVertex3f(floorlist[i][j].x0, floorlist[i][j].y0, floorlist[i][j].z0 + 1);
+				glPopMatrix();
+				glEnd();
+			}
+
+		}
 	}
 	//glEnd();
 	if (mode == 2) {
+		glLightfv(GL_LIGHT2, GL_POSITION, Array3(0., 10., lightz));
+		//glEnable(GL_LIGHT2);
 		glLightfv(GL_LIGHT2, GL_POSITION, Array3(0., 0., 0.));
 
 		for (int i = 0; i < 50; i++) {
-			gparticle[i].x = (gparticle[i].x + (gparticle[i].xv / 10)) / 10;
-			gparticle[i].y = (gparticle[i].y + (gparticle[i].yv / 10)) / 10;
-			gparticle[i].z = (gparticle[i].z + (gparticle[i].zv / 10)) / 10;
+			gparticle[i].x = (gparticle[i].x + (gparticle[i].xv / 10)) / 5;
+			gparticle[i].y = (gparticle[i].y + (gparticle[i].yv / 10)) / 5;
+			gparticle[i].z = (gparticle[i].z + (gparticle[i].zv / 10)) / 5;
 			glPushMatrix();
 			//glColor3f(tornadolist[i].r, tornadolist[i].g, tornadolist[i].b);
 			SetMaterial(gparticle[i].r, gparticle[i].g, gparticle[i].b, 100);
@@ -654,6 +713,7 @@ Display( )
 	// draw the current object:
 	if (mode == 3) {
 		//glEnable(GL_LIGHT0);
+		glLightfv(GL_LIGHT2, GL_POSITION, Array3(0., 10., lightz));
 
 		for (int i = 0; i < 100; i++) {
 
@@ -869,6 +929,21 @@ DoProjectMenu( int id )
 	glutPostRedisplay( );
 }
 
+void
+DoLightMenu(int id)
+{
+	light_selection = id;
+	glutSetWindow(MainWindow);
+	glutPostRedisplay();
+}
+
+void
+DoParticleMenu(int id)
+{
+	mode = id;
+	glutSetWindow(MainWindow);
+	glutPostRedisplay();
+}
 
 // use glut to display a string of characters using a raster font:
 
@@ -933,6 +1008,20 @@ InitMenus( )
 	glutAddMenuEntry( "Off",  0 );
 	glutAddMenuEntry( "On",   1 );
 
+	int lightmenu = glutCreateMenu(DoLightMenu);
+	glutAddMenuEntry("Off", 0);
+	glutAddMenuEntry("Ambient", 1);
+	glutAddMenuEntry("Specular", 2);
+
+	int modemenu = glutCreateMenu(DoParticleMenu);
+	glutAddMenuEntry("Off", 0);
+	glutAddMenuEntry("Tornado", 1);
+	glutAddMenuEntry("Gravity well", 2);
+	glutAddMenuEntry("Rain", 3);
+
+
+
+
 	int depthcuemenu = glutCreateMenu( DoDepthMenu );
 	glutAddMenuEntry( "Off",  0 );
 	glutAddMenuEntry( "On",   1 );
@@ -965,6 +1054,8 @@ InitMenus( )
 	glutAddSubMenu(   "Depth Fighting",depthfightingmenu);
 #endif
 
+	glutAddSubMenu("Light Selection", lightmenu);
+	glutAddSubMenu("Particle Selection", modemenu);
 	glutAddSubMenu(   "Depth Cue",     depthcuemenu);
 	glutAddSubMenu(   "Projection",    projmenu );
 	glutAddMenuEntry( "Reset",         RESET );
@@ -1126,7 +1217,7 @@ InitLists( )
 		tornadolist[i].r = ((float(rand() % 100) / 100));
 		tornadolist[i].g = ((float(rand() % 100) / 100));
 		tornadolist[i].b = ((float(rand() % 100) / 100));
-
+		tornadolist[i].teapot = rand() % 101;
 
 
 	}
@@ -1152,12 +1243,12 @@ InitLists( )
 	glNewList(BoxList, GL_COMPILE);
 	OsuSphere(.05, 6, 6);
 	glEndList();
-	/*
+	
 	DL = glGenLists(1);
 	glNewList(DL, GL_COMPILE);
 	LoadObjFile("teapot.obj");		//Implement later!
 	glEndList();
-	*/
+	
 	// create the axes:
 
 	AxesList = glGenLists( 1 );
@@ -1791,7 +1882,7 @@ HsvRgb( float hsv[3], float rgb[3] )
 }
 
 void
-Cross(float v1[3], float v2[3], float vout[3])
+Cross1(float v1[3], float v2[3], float vout[3])
 {
 	float tmp[3];
 	tmp[0] = v1[1] * v2[2] - v2[1] * v1[2];
@@ -1809,7 +1900,7 @@ Dot(float v1[3], float v2[3])
 }
 
 float
-Unit(float vin[3], float vout[3])
+Unit1(float vin[3], float vout[3])
 {
 	float dist = vin[0] * vin[0] + vin[1] * vin[1] + vin[2] * vin[2];
 	if (dist > 0.0)

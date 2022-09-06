@@ -34,7 +34,7 @@ DrawPoint( struct point *p )
 }
 
 void
-OsuSphere( float radius, int slices, int stacks )
+OsuSphere( float radius, int slices, int stacks)
 {
 	// set the globals:
 

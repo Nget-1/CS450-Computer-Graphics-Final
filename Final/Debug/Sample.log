@@ -1,27 +1,40 @@
 ﻿  sample.cpp
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(56,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(63,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(73,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(74,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(93,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(94,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(106,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\osusphere.cpp(107,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(236,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(240,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(241,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(343,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(516,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(539,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(547,83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(623,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(626,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(629,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(632,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(635,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(638,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(1091,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(1092,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\sample.cpp(1146,21): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(56,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(63,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(73,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(74,29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(93,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(94,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(106,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\osusphere.cpp(107,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(128,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(131,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(134,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(152,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(155,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(158,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(171,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(175,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(179,16): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(364,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\loadobjfile.cpp(384,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(240,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(244,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(245,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(349,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(532,50): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(561,18): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(571,83): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(597,36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(689,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(692,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(695,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(698,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(701,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(704,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(1189,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(1190,27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(1220,34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\johng\Desktop\CS450 Graphics\final_test1\sample.cpp(1244,21): warning C4305: 'argument': truncation from 'double' to 'float'
 sample.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
-  Sample.vcxproj -> C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\Debug\Sample.exe
+  Sample.vcxproj -> C:\Users\johng\Desktop\CS450 Graphics\final_test1\.\Debug\Sample.exe
