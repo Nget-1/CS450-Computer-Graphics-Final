@@ -1,0 +1,3 @@
+C:\MJB\CS550\SampleFreeGlut2019\Debug\Sample.exe
+C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\Debug\Sample.exe
+C:\Users\ethan\Desktop\CS450 Graphics\Final_attempt1\Debug\Sample.pdb
